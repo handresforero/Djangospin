@@ -1,0 +1,90 @@
+<html>
+    <html>
+
+<head>
+
+    {% load static %}
+
+    <!-- Bootstrap -->
+    <link href="{% static '/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
+     <!-- Fonts -->
+    
+     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap" rel="stylesheet"> 
+     <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet">
+     
+
+    <!-- Styles -->
+    <link href="{% static '/css/gestion.css' %}" rel="stylesheet">
+</head>
+
+<body>
+<h1 style="background-color: darkblue; color:white; text-align:center ">Consulta de palabras con contenido Spinneado</h1>
+<h3>El Noti</h3>
+<p></p>
+<div class="container-fluid">
+      
+    <div class="row">
+        <div class="col-md-6" style="margin: 1rem auto 0 auto;">
+          <div class="card">
+              <div class="card-body">
+                  <form method="GET" action="{% url 'submitquery2'%}">
+                      <div class="form-group">
+                          <input type="search" class="form-control" name="query2" id="query2">
+                      </div>
+                      <input type="submit" class="btn btn-primary">   
+                      <input type="reset" class="btn btn-primary">                      
+                  </form>
+        </div>
+
+    
+    <div class="row">
+      <div class="col-md-6" style="margin:0 auto;">
+      {% if error %}
+      <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <strong>Error</strong>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      {% endif %}
+      {% if result %}
+      <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <strong>Palabra buscada: {{ans1}}</strong>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      {% endif %}
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6" style="margin:0 auto;">
+      {% if error %}
+      <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <strong>Error</strong>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      {% endif %}
+      {% if result %}
+      <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <strong>Resusltado spinneado: {{ans2}}</strong>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      {% endif %}
+      </div>
+    </div>
+</div>
+
+
+    
+<h3>Contactanos:</h3>
+<p>Woobsing.com</p>
+<p></p>
+</body>
+</html>
